@@ -1,0 +1,31 @@
+
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # Or the branch you're using
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Set up Node.js (if using Node.js for build)
+        uses: actions/setup-node@v2
+        with:
+          node-version: 'v22'  # Adjust version as needed
+
+      - name: Install dependencies
+        run: npm install  # Adjust command if needed for your project
+
+      - name: Build the project (e.g., for Astro or any other static site)
+        run: npm run build  # Replace with your build command
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          personal_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist  # Adjust this to the directory where your build output is located
