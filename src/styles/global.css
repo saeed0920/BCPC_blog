@@ -1,3 +1,8 @@
 .time-line-container>div:last-child .education__time>.education__line {
     display: none;
 }
+
+.customTransform > *:not(.drawer-overlay) { 
+transform: translateX(100%);
+}
+
