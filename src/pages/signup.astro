@@ -1,0 +1,16 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="signup" sideBarActiveItemID="signup">
+   <section class="signup" dir="rtl">
+        <h1>ثبت‌نام در مسابقه BCPC</h1>
+    <br>
+        <p>
+            برای ثبت‌نام در مسابقه BCPC، لطفاً فرم زیر را پر کنید و اطلاعات لازم را وارد نمایید.
+        </p>
+    <a href="https://forms.gle/omQndUeq1V42MbJZ7" class="text-blue-500 underline">فرم ثبت نام</a>
+        <form action="/submit-signup" method="POST">
+         </form>
+    </section>
+</BaseLayout>
