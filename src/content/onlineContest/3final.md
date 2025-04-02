@@ -2,7 +2,7 @@
 title: "فینال لیگ برنامه نویسی "
 description: "پنجشبه - ۱۴ فروردین"
 pubDate: "Apr 02 2025"
-heroImage: "/public/final.png"
+heroImage: "/final.png"
 tags: ["مسابقه"]
 ---
 
