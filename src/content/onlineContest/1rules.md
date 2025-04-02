@@ -1,5 +1,5 @@
 ---
-title: "قوانین مسابقات BCPC"
+title: "BCPC قوانین مسابقه"
 description: "توضیحات مربوط"
 pubDate: "Apr 02 2025"
 heroImage: "https://api.iconify.design/material-symbols:rule.svg?color=%235458c4"
