@@ -5,7 +5,7 @@ import { getCollection } from "astro:content";
 import createSlug from "../../../../lib/createSlug";
 
 export async function getStaticPaths({ paginate }) {
-  const all_posts = await getCollection("blog");
+  const all_posts = await getCollection("onlineContest");
   const all_tags = all_posts.flatMap((post) => {
     return post.data.tags || [];
   });
@@ -25,15 +25,20 @@ const { page } = Astro.props;
 const params = Astro.params;
 ---
 
-<BaseLayout title={"Blog - " + params.tag} sideBarActiveItemID="blog">
+<BaseLayout title="onlineContest" sideBarActiveItemID="onlineContest">
   <div class="mb-5">
-    <div class="text-3xl w-full font-bold">Blog - {params.tag}</div>
+    <div class="flex gap-3 justify-end text-3xl w-full font-bold text-right">
+      <span class="">
+      {params.tag} - 
+      </span>
+      مسابقه آنلاین
+    </div>
   </div>
   {
     page.data.length === 0 ? (
       <div class="bg-base-200 border-l-4 border-secondary w-full p-4 min-w-full">
-        <p class="font-bold">Sorry!</p>
-        <p>There are no blog posts to show at the moment. Check back later!</p>
+        <p class="font-bold">متاسفیم</p>
+    <p>اینجا هیچ پست مرتبطی در مورد این تگ وجود ندارم</p>
       </div>
     ) : (
       <ul>
@@ -43,7 +48,7 @@ const params = Astro.params;
               title={post.data.title}
               img={post.data.heroImage}
               desc={post.data.description}
-              url={"/blog/" + createSlug(post.data.title, post.slug)}
+              url={"/onlineContest/" + createSlug(post.data.title, post.slug)}
               target="_self"
               badge={post.data.badge}
               tags={post.data.tags}

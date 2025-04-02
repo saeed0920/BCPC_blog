@@ -35,7 +35,7 @@ const data = [
 <BaseLayout title="Contact" sideBarActiveItemID="contact">
 <section class="about-us flex flex-col h-full justify-between" dir="rtl">
     <div class="mb-5">
-        <h1 class="font-bold">درباره مسابقه BCPC</h1>
+        <h1 class="font-bold text-3xl">درباره مسابقه BCPC</h1>
     <br>
          <p>
 هدف ما از برگزاری مسابقه BCPC، نه تنها ارتقای سطح دانش علمی دانشجویان و تقویت مهارت‌های آن‌ها در زمینه‌های تخصصی است، بلکه تلاش داریم با ایجاد فضایی رقابتی و انگیزشی، استعدادهای برجسته را شناسایی و جذب کنیم، و در عین حال فرصتی فراهم آوریم تا شرکت‌کنندگان بتوانند خود را برای حضور موفق در مسابقه حضوری اردیبهشت‌ماه آماده کنند و تجربه‌ای ارزشمند در مسیر رشد علمی و حرفه‌ای خود کسب نمایند.        </p>
@@ -46,8 +46,8 @@ const data = [
       const items = [];
       for (const link of data) {
         items.push(
-        <a href={link.link} target="_blank" rel="noopener noreferrer" class="flex flex-col justify-center text-center items-center gap-4 md:gap-6 w-[10rem] overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow p-2 flex-wrap self-stretch text-sm md:text-md box">
-          <img src={link.src} class=" object-fill w-[2rem] md:w-[5rem]" />
+        <a href={link.link} target="_blank" rel="noopener noreferrer" class="flex flex-col justify-center text-center items-center gap-4 md:gap-6 sm:w-[10rem] overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow flex-wrap self-stretch text-sm md:text-md box p-4 w-[8rem] sm:p-[20px]">
+          <img src={link.src} class=" object-fill w-[2rem] sm:w-[3rem] md:w-[5rem]" />
         {link.label}
         </a>
         );
@@ -64,7 +64,6 @@ const data = [
 .box{
   position: relative;
   box-sizing: border-box;
-  padding: 20px;
 }
 
 .box:before{

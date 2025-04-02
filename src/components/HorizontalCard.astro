@@ -8,26 +8,14 @@ const tag_url = url.split("/").slice(0, -1).join("/") + "/tag";
   class="rounded-lg relative bg-base-100 hover:shadow-xl transition ease-in-out hover:scale-[102%] isolate">
   <a href={url} target={target}>
     <div class="hero-content flex-col md:flex-row">
-      {
-        img && (
-          <Image
-            src={img}
-            width={750}
-            height={422}
-            format="webp"
-            alt={title}
-            class="max-w-full md:max-w-[13rem] rounded-lg"
-          />
-        )
-      }
-      <div class="grow w-full">
+            <div class="grow w-full text-right">
         <h1 class="text-xl font-bold">
           <a href={url} target={target} class="absolute inset-0 z-10"></a>
           {title}
           {badge && <div class="badge badge-secondary mx-2">{badge}</div>}
         </h1>
         <p class="py-1 text-1xl">{desc}</p>
-        <div class="card-actions justify-end">
+        <div class="card-actions justify-start">
           {
             tags &&
               tags.map((tag) => (
@@ -38,5 +26,18 @@ const tag_url = url.split("/").slice(0, -1).join("/") + "/tag";
           }
         </div>
       </div>
+{
+        img && (
+          <Image
+            src={img}
+            width={300}
+            height={250}
+            format="webp"
+            alt={title}
+            class="max-w-full md:max-w-[13rem] rounded-lg"
+          />
+        )
+      }
+
     </div>
 </div>
