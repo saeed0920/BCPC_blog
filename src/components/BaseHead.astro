@@ -10,7 +10,7 @@ export interface Props {
 	ogType?: string;
 }
 
-const { title, description, ogType = 'website' } = Astro.props;
+const { title, description, image = '/social_img.webp', ogType = 'website' } = Astro.props;
 ---
 
 <!-- Global Metadata -->
@@ -29,4 +29,4 @@ const { title, description, ogType = 'website' } = Astro.props;
 <meta property="og:url" content={Astro.url} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-
+<meta property="og:image" content={new URL(image, Astro.url)} />
