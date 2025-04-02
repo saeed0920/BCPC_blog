@@ -1,17 +1,87 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro"
+const data = [
+  {
+    label: "سوپر گروه دانشگاه بیرجند",
+    src: "https://api.iconify.design/logos:telegram.svg",
+    link: "https://t.me/SSCEUBIR",
+  },
+{
+    label: "کانال کامپیوتر دانشگاه آزاد",
+    src: "https://api.iconify.design/logos:telegram.svg",
+    link: "https://t.me/FreeUniSSofCS",
+  },
+  {
+    label: "ایمیل انجمن کامپیوتر دانشگاه بیرجند",
+    src: "https://api.iconify.design/logos:google-gmail.svg",
+    link: "mailto:ssce.ub@gmail.com",
+    class : ""
+  },
+  {
+    label: "ایمیل انجمن کامپیوتر دانشگاه آزاد",
+    sub: "mailto:azad.club0920@gmail.com",
+    src: "https://api.iconify.design/logos:google-gmail.svg",
+    link: "mailto:azad.club0920@gmail.com",
+  },
+  {
+    label: "فرم ثبت نام",
+    src: "https://api.iconify.design/simple-icons:googleforms.svg?color=%235458c4",
+    link: "https://forms.gle/m7XjBsJc2NZ7KomC9",
+  },
+];
 ---
 
 
 <BaseLayout title="Contact" sideBarActiveItemID="contact">
-<section class="about-us " dir="rtl">
-        <h1>درباره مسابقه ICPC</h1>
+<section class="about-us flex flex-col h-full justify-between" dir="rtl">
+    <div class="mb-5">
+        <h1 class="font-bold">درباره مسابقه BCPC</h1>
     <br>
-        <p>
-            مسابقه برنامه‌نویسی ICPC (مسابقات بین‌المللی برنامه‌نویسی دانشجویی) یکی از مهم‌ترین و بزرگ‌ترین مسابقات برنامه‌نویسی در سطح جهان است. این مسابقات به دانشجویان دانشگاه‌ها فرصتی برای به نمایش گذاشتن توانایی‌های برنامه‌نویسی خود می‌دهد و به تیم‌ها این امکان را می‌دهد که با بهترین‌های جهان رقابت کنند.
-        </p>
-        <p>
-            هدف این مسابقه تقویت مهارت‌های حل مسئله، کار تیمی و یادگیری سریع ابزارهای جدید برای حل مسائل پیچیده است.
-        </p>
+         <p>
+هدف ما از برگزاری مسابقه BCPC، نه تنها ارتقای سطح دانش علمی دانشجویان و تقویت مهارت‌های آن‌ها در زمینه‌های تخصصی است، بلکه تلاش داریم با ایجاد فضایی رقابتی و انگیزشی، استعدادهای برجسته را شناسایی و جذب کنیم، و در عین حال فرصتی فراهم آوریم تا شرکت‌کنندگان بتوانند خود را برای حضور موفق در مسابقه حضوری اردیبهشت‌ماه آماده کنند و تجربه‌ای ارزشمند در مسیر رشد علمی و حرفه‌ای خود کسب نمایند.        </p>
+    </div>
+
+    <div class="flex flex-wrap justify-center items-center w-full self-center my-auto gap-4 ">
+    {(() => {
+      const items = [];
+      for (const link of data) {
+        items.push(
+        <a href={link.link} target="_blank" rel="noopener noreferrer" class="flex flex-col justify-center text-center items-center gap-4 md:gap-6 w-[10rem] overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow p-2 flex-wrap self-stretch text-sm md:text-md box">
+          <img src={link.src} class=" object-fill w-[2rem] md:w-[5rem]" />
+        {link.label}
+        </a>
+        );
+      }
+      return items;
+    })()}
+
+    </div>
   </section>
 </BaseLayout>
+
+
+<style>
+.box{
+  position: relative;
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+.box:before{
+  content: '';
+  position:absolute;
+  top:0;
+  left:-100%;
+  width:100%;
+  height:100%;
+  background: rgba(0,0,0,0.2);
+  transition:0.5s;
+  pointer-events: none;
+}
+
+.box:hover:before{
+  left:-50%;
+  transform: skewX(-5deg);
+}
+
+</style>
