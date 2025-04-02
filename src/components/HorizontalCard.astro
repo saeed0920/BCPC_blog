@@ -30,11 +30,11 @@ const tag_url = url.split("/").slice(0, -1).join("/") + "/tag";
         img && (
           <Image
             src={img}
-            width={300}
-            height={250}
+            width={350}
+            height={350}
             format="webp"
             alt={title}
-            class="max-w-full md:max-w-[13rem] rounded-lg"
+            class="max-w-full object-fill md:max-w-[13rem] rounded-lg"
           />
         )
       }
