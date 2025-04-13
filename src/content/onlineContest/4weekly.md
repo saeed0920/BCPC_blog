@@ -2,7 +2,7 @@
 title: "BCPC شروع فصل جدید"
 description: "پنج‌شنبه - ۲۸ فروردین"
 pubDate: "Apr 13 2025"
-heroImage: "https://api.iconify.design/material-symbols:circle-notifications.svg?color=%2300b846"
+heroImage: "/weekly.jpg"
 tags: ["مسابقه","اطلاعیه"]
 ---
 
