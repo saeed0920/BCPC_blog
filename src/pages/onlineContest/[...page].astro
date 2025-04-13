@@ -26,6 +26,14 @@ const { page } = Astro.props;
       </div>
     ) : (
       <ul>
+        <HorizontalCard
+          title="تاریخچه مسابقات"
+          img="/images/contest-history.png"
+          desc="تاریخچه مسابقات برنامه‌نویسی و سوالات و نتایج نهایی آنها"
+          url="/contest/history"
+          target="_self"
+        />
+        <div class="divider my-0" />
         {page.data.map((post) => (
           <>
             <HorizontalCard
@@ -34,8 +42,6 @@ const { page } = Astro.props;
               desc={post.data.description}
               url={"/onlineContest/" + createSlug(post.data.title, post.slug)}
               target="_self"
-              badge={post.data.badge}
-              tags={post.data.tags}
             />
             <div class="divider my-0" />
           </>
