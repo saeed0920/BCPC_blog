@@ -1,4 +1,5 @@
 ---
+import HorizontalCard from "@components/HorizontalCard.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
@@ -25,7 +26,49 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       </a>
       <a class="btn" href="/contact">درباره ما</a>
     </div>
+
+        <a
+      href="/onlineContest/tag/اطلاعیه"
+      class="w-[10rem] my-4 justify-start flex items-center rounded-sm cursor-pointer container-notif" 
+              target="_self"
+    >
+      <img src="https://api.iconify.design/ic:twotone-notifications-active.svg?color=%23ffffff" class="w-[2.8rem] h-[2.8rem] p-2 bg-red-500 rounded-full ml-[-1.5rem] z-10  notif-animation transition-colors" />
+      <span class="bg-gray-100 transition-colors font-bold p-1 pr-[1rem]  w-[8rem] text-center rounded-full">
+      اطلاعیه ها
+      </span>
+    </a>
+
   </div>
 
  
 </BaseLayout>
+<style>
+@keyframes rotate {
+0% {transform: rotate(0deg);} 
+20% {transform: rotate(15deg);}  
+50%{transform:rotate(0deg)}
+75% {transform: rotate(-15deg);}  
+100% {transform: rotate(0deg);}  
+}
+
+.container-notif {
+  img {
+    box-shadow : 0 .2rem .4rem rgba(0, 0, 0,.3);
+  }
+}
+.container-notif:hover {
+  img {
+    @apply bg-red-600;
+  }
+span {
+    @apply bg-gray-200;
+  }
+.notif-animation{
+  animation : rotate .2s;
+    animation-delay : .1s;
+  animation-iteration-count: infinite;
+  animation-timing-function : linear;
+}
+
+}
+</style>
