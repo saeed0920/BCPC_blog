@@ -1,0 +1,138 @@
+---
+import {type BlogSchema } from "../../content/config";
+import PostLayout from "../../layouts/PostLayout.astro";
+import { Image } from "astro:assets";
+
+interface Contest {
+  id: number
+  title: string
+  questions: string[] 
+}
+
+const contests: Contest[] = [
+  {
+    id: 1,
+    title: 'مسابقه شماره 1',
+    questions: ['A', 'B', 'C', 'D']
+  },
+  {
+    id: 2,
+    title: 'مسابقه شماره 2',
+    questions: ['A', 'B', 'C', 'D', 'E']
+  },
+  {
+    id: 3,
+    title: 'مسابقه شماره 3',
+    questions: ['A', 'B', 'C', 'D', 'E']
+  },
+  {
+    id: 4,
+    title: 'در حال آماده سازی',
+    questions: ['A', 'B', 'C', 'D']
+  },
+  {
+    id: 5,
+    title: 'مسابقه شماره 5',
+    questions: ['A', 'B', 'C', 'D', 'E', 'F']
+  },
+].reverse();
+
+const existingPDFs = {
+  1: ['A', 'B', 'C', 'D'],
+  2: ['A', 'B', 'C', 'D', 'E'],
+  3: ['A', 'B', 'C', 'D', 'E'],
+  4: ['A', 'B', 'C', 'D'],
+  5: ['A', 'B', 'C', 'D', 'E', 'F']
+};
+
+const post: BlogSchema = {
+  title: "تاریخچه مسابقات",
+  description: "تاریخچه مسابقات برنامه‌نویسی و سوالات و نتایج نهایی آنها",
+  pubDate: new Date("2025-04-12")
+};
+
+function pdfExists(contestNumber : number, problemLetter : string) {
+  return existingPDFs[contestNumber]?.includes(problemLetter) || false;
+}
+
+---
+<PostLayout
+  title={post.title}
+  description={post.description}
+  pubDate={post.pubDate}
+>
+  <article class="prose prose-lg lg:max-w-[750px] prose-img:mx-auto" dir="rtl">
+{contests.map(contest => (
+  <section class="mb-8">
+    <h2 class="text-3xl font-bold mb-4">{contest.title}</h2>
+    <div class="grid grid-cols-2 gap-4">
+      {contest.questions.map((q) => {
+        const exists = pdfExists(contest.id, q);
+        return (
+          <button
+            onclick={`window.location.href='/contest-history/pdf/contest-${contest.id}/${q}.pdf'`}
+            class={`btn btn-outline btn-sm ${exists ? 'hover:cursor-pointer' : 'btn-disabled'}`}
+            disabled={!exists}
+          >
+            سوال {q}
+          </button>
+        );
+      })}
+    </div>
+
+    <div class="flex justify-center mt-4">
+      <label for={`scoreboard-${contest.id}`} class="cursor-pointer">
+        <Image
+          src={`/contest-history/images/${contest.id}.jpg`}
+          alt={`نتایج ${contest.title}`}
+          width={400}
+          height={300}
+          class="rounded-lg hover:opacity-90 transition-opacity"
+        />
+      </label>
+      <input type="checkbox" id={`scoreboard-${contest.id}`} class="modal-toggle" />
+      <div class="modal close-modal">
+        <div class="modal-box relative z-20">
+          <label for={`scoreboard-${contest.id}`} class="flex items-center justify-center h-[2rem] w-[2rem] cursor-pointer bg-gray-200 rounded-full text-center absolute right-2 top-2">
+            <img src="https://api.iconify.design/material-symbols:close-rounded.svg?color=%2366767a" />
+          </label>
+          <Image
+            src={`/contest-history/images/${contest.id}.jpg`}
+            alt={`نتایج ${contest.title}`}
+            width={1200}
+            height={900}
+            class="rounded-lg"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+))}
+      </article>
+</PostLayout>
+
+<script>
+window.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+    const input =  Array.from(document.querySelectorAll<HTMLInputElement>("[type=checkbox]")).find(checkbox => checkbox.checked);
+    if (input) input.checked = false
+    }
+  });
+const buttons = document.querySelectorAll('.close-modal');
+  buttons.forEach((button) => {
+    button.addEventListener('click', (e) => {
+  const target = e.target as HTMLElement | null;
+  if (!target) return;
+  const modal = target.closest('.modal');
+  if (modal && target === modal) {
+    const previous = modal.previousElementSibling as HTMLInputElement | null;
+    if (previous && previous.type === 'checkbox') {
+      previous.checked = false;
+    }
+  }
+    });
+  });
+
+</script>
+
+
