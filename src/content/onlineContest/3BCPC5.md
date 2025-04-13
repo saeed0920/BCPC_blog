@@ -19,6 +19,3 @@ tags: ["مسابقه"]
 <a href="/onlineContest/bcpc-قوانین-مسابقه" class="btn">
 اطلاعات بیشتر
 </a>
-
-
-

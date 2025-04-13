@@ -31,26 +31,30 @@ For simple static pages:
 
 ```astro
 ---
+
 import { BlogSchema } from "../content/config";
 import PostLayout from "../layouts/PostLayout.astro";
 import { Image } from "astro:assets";
 
 const post: BlogSchema = {
-  title: "Your Page Title",
-  description: "Your page description",
-  pubDate: "YYYY-MM-DD",
-  badge: "Your Badge",
-  tags: ["tag1", "tag2"]
+title: "Your Page Title",
+description: "Your page description",
+pubDate: "YYYY-MM-DD",
+badge: "Your Badge",
+tags: ["tag1", "tag2"]
 };
+
 ---
 
 <PostLayout
-  title={post.title}
-  description={post.description}
-  pubDate={post.pubDate}
-  badge={post.badge}
-  tags={post.tags}
+title={post.title}
+description={post.description}
+pubDate={post.pubDate}
+badge={post.badge}
+tags={post.tags}
+
 >
+
   <article class="prose prose-lg lg:max-w-[750px] prose-img:mx-auto" dir="rtl">
     <!-- Your content here -->
   </article>
@@ -58,7 +62,9 @@ const post: BlogSchema = {
 ```
 
 ### 2. Dynamic Pages
+
 For pages that use content from the `content` directory:
+
 1. Create a new `.astro` file in the appropriate section of `src/pages`
 2. Use the content collection system:
 
@@ -83,6 +89,7 @@ const entries = await getCollection("your-collection-name");
 ```
 
 ### 3. Directory Structure
+
 - `src/pages/`: Contains all website pages
   - Directories like `contest/` group related pages
   - Files like `index.astro` create main pages
@@ -94,12 +101,14 @@ const entries = await getCollection("your-collection-name");
   - Images and PDFs should be placed in appropriate subdirectories
 
 ### 4. Styling Guidelines
+
 - Use Tailwind CSS classes for styling
 - Use DaisyUI components for UI elements
 - Follow RTL support for Persian content
 - Use the existing color scheme and typography
 
 ### 5. Best Practices
+
 - Always use the `PostLayout` component for consistency
 - Use Astro's built-in components like `Image` for optimized assets
 - Follow the existing metadata structure (title, description, pubDate, etc.)
