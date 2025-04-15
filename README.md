@@ -31,33 +31,35 @@ For simple static pages:
 
 ```astro
 ---
+
 import { BlogSchema } from "../content/config";
 import PostLayout from "../layouts/PostLayout.astro";
 import { Image } from "astro:assets";
 
 const post: BlogSchema = {
-  title: "Your Page Title",
-  description: "Your page description",
-  pubDate: new Date("YYYY-MM-DD"),
-  badge: "Your Badge",
-  tags: ["tag1", "tag2"]
-};
----
-
-<PostLayout
-  title={post.title}
-  description={post.description}
-  pubDate={post.pubDate}
-  badge={post.badge}
-  tags={post.tags}
->
-=======
 title: "Your Page Title",
 description: "Your page description",
-pubDate: "YYYY-MM-DD",
+pubDate: new Date("YYYY-MM-DD"),
 badge: "Your Badge",
 tags: ["tag1", "tag2"]
 };
+
+---
+
+<PostLayout
+title={post.title}
+description={post.description}
+pubDate={post.pubDate}
+badge={post.badge}
+tags={post.tags}
+
+> =======
+> title: "Your Page Title",
+> description: "Your page description",
+> pubDate: "YYYY-MM-DD",
+> badge: "Your Badge",
+> tags: ["tag1", "tag2"]
+> };
 
 ---
 
@@ -77,6 +79,7 @@ tags={post.tags}
 ```
 
 ### 2. Dynamic Pages
+
 For pages that use content from the `content` directory:
 
 1. Create a new `.astro` file in the appropriate section of `src/pages`
