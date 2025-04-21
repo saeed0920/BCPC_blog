@@ -1,0 +1,63 @@
+---
+import PostLayout from "@layouts/PostLayout.astro";
+import type { BlogSchema } from "src/content/config";
+
+const post: BlogSchema = {
+  title: "اسکوربورد نهایی",
+  description :"نتایج کلی مسابقات تا به الان",
+  pubDate: new Date("2025-04-12"),
+  heroImage: "https://api.iconify.design/material-symbols:scoreboard.svg?color=%23b36565"
+};
+
+---
+<PostLayout
+  title={post.title}
+  description={post.description}
+  pubDate={post.pubDate}
+  heroImage={post.heroImage}
+  updatedDate={post.updatedDate}
+  badge={post.badge}
+  tags={post.tags}
+>
+<iframe 
+  src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRVM38CMUyr_M_cI12zyYg3AzT5BnNl29acHhMxyoi2pgMBNp7qF5-fcNeLrwDydiLIxFjGEHzPoKa2/pubhtml?gid=711993548&single=true" 
+  width="100%" 
+  height="500"
+    style="border:none;outline:none;">
+</iframe>
+  <a class="text-blue-500 text-center w-full" href="https://docs.google.com/spreadsheets/d/e/2PACX-1vRVM38CMUyr_M_cI12zyYg3AzT5BnNl29acHhMxyoi2pgMBNp7qF5-fcNeLrwDydiLIxFjGEHzPoKa2/pubhtml?gid=711993548&single=true">توی شیت ببینید</a>
+  <hr>
+<div class="scoreboard-criteria">
+  <h2>🎯 معیارهای محاسبه امتیاز در اسکوربورد</h2>
+
+  <p>امتیاز نهایی هر شرکت‌کننده در مسابقات بر اساس معیارهای زیر محاسبه شده است:</p>
+
+  <h3>✅ امتیاز بر اساس  رتبه</h3>
+  <ul>
+    <li>🥇 رتبه اول: ۶ امتیاز</li>
+    <li>🥈 رتبه دوم: ۴ امتیاز</li>
+    <li>🥉 رتبه سوم: ۲ امتیاز</li>
+    <li>🎖 رتبه چهارم: ۱ امتیاز</li>
+  </ul>
+  <hr>
+  <h3>✅ امتیاز بر اساس عملکرد در حل سوالات</h3>
+  <ul>
+    <li>اولین پاسخ صحیح به یک سوال: ۱ امتیاز</li>
+    <li>هر پاسخ صحیح دیگر (صرف‌نظر از اینکه اولین باشد یا نه): ۱ امتیاز</li>
+    <li>حضور در مسابقه (حتی بدون حل سوال): ۱ امتیاز</li>
+  </ul>
+    <hr>
+  <h3>⚠️ نکته درباره مرحله ۴ و ۵:</h3>
+  <p>
+    در مراحل چهارم و پنجم، به دلیل نرسیدن تعداد شرکت‌کنندگان به حد نصاب،
+    امتیاز مربوط به <strong>رنک</strong> و <strong>اولین پاسخ صحیح</strong> محاسبه نشده است.
+    تنها موارد زیر لحاظ شده‌اند:
+  </p>
+  <ul>
+    <li>تعداد سوالات حل‌شده</li>
+    <li>حضور در مسابقه</li>
+  </ul>
+</div>
+
+</PostLayout>
+

@@ -27,12 +27,21 @@ const { page } = Astro.props;
     ) : (
       <ul>
         <HorizontalCard
+          title="اسکوربورد نهایی"
+          img="https://api.iconify.design/material-symbols:scoreboard.svg?color=%23b36565"
+          desc="نتایج کلی مسابقات تا به الان"
+          url="/onlineContest/scoreboard"
+          target="_self"
+        />
+    <span class="divider"></span>
+        <HorizontalCard
           title="تاریخچه مسابقات"
           img="https://api.iconify.design/lucide:history.svg?color=%2366767a"
           desc="تاریخچه مسابقات برنامه‌نویسی و سوالات و نتایج نهایی آنها"
           url="/onlineContest/history"
           target="_self"
         />
+
         <div class="divider my-0" />
         {page.data.map((post) => (
           <>
